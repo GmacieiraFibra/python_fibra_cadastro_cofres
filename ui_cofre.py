@@ -19,9 +19,8 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGroupBox,
     QHBoxLayout, QHeaderView, QLabel, QMainWindow,
     QMenu, QMenuBar, QPushButton, QSizePolicy,
-    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
+    QStatusBar, QTreeWidget, QTreeWidgetItem, QVBoxLayout,
     QWidget)
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -184,10 +183,10 @@ class Ui_MainWindow(object):
         self.frame_table.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.frame_table)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.tableWidget_data = QTableWidget(self.frame_table)
-        self.tableWidget_data.setObjectName(u"tableWidget_data")
+        self.treeWidget = QTreeWidget(self.frame_table)
+        self.treeWidget.setObjectName(u"treeWidget")
 
-        self.horizontalLayout.addWidget(self.tableWidget_data)
+        self.horizontalLayout.addWidget(self.treeWidget)
 
 
         self.verticalLayout.addWidget(self.frame_table)
@@ -292,6 +291,14 @@ class Ui_MainWindow(object):
         self.groupBox_emp.setTitle(QCoreApplication.translate("MainWindow", u"EMPRESA:", None))
         self.groupBox_repLeg.setTitle(QCoreApplication.translate("MainWindow", u"REPRESENTANTE LEGAL:", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"LIMPAR FILTROS", None))
+        ___qtreewidgetitem = self.treeWidget.headerItem()
+        ___qtreewidgetitem.setText(6, QCoreApplication.translate("MainWindow", u"TIPO DE ASSINATURA", None));
+        ___qtreewidgetitem.setText(5, QCoreApplication.translate("MainWindow", u"VENCIEMENTO MANDATO", None));
+        ___qtreewidgetitem.setText(4, QCoreApplication.translate("MainWindow", u"EMAIL DE CONTATO", None));
+        ___qtreewidgetitem.setText(3, QCoreApplication.translate("MainWindow", u"REPRESENTANTE LEGAL", None));
+        ___qtreewidgetitem.setText(2, QCoreApplication.translate("MainWindow", u"EMPRESA", None));
+        ___qtreewidgetitem.setText(1, QCoreApplication.translate("MainWindow", u"CNPJ", None));
+        ___qtreewidgetitem.setText(0, QCoreApplication.translate("MainWindow", u"ID", None));
         self.groupBox_acoes.setTitle(QCoreApplication.translate("MainWindow", u"A\u00c7\u00d5ES:", None))
         self.pushButton_incluir.setText(QCoreApplication.translate("MainWindow", u"INCLUIR", None))
         self.pushButton_alterar.setText(QCoreApplication.translate("MainWindow", u"ALTERAR", None))

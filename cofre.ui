@@ -249,7 +249,43 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QTableWidget" name="tableWidget_data"/>
+        <widget class="QTreeWidget" name="treeWidget">
+         <column>
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>CNPJ</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>EMPRESA</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>REPRESENTANTE LEGAL</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>EMAIL DE CONTATO</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>VENCIEMENTO MANDATO</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>TIPO DE ASSINATURA</string>
+          </property>
+         </column>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -408,8 +444,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

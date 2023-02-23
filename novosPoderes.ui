@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>475</height>
+    <width>473</width>
+    <height>498</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>300</width>
+    <width>0</width>
     <height>0</height>
    </size>
   </property>
@@ -24,6 +24,10 @@
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>logo_fibra.png</normaloff>logo_fibra.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -80,35 +84,6 @@
       <property name="bottomMargin">
        <number>0</number>
       </property>
-      <item>
-       <widget class="QWidget" name="widget" native="true">
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">image: url(:/Logo/logo_fibra.png);</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>400</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
      </layout>
     </widget>
    </item>
@@ -120,9 +95,9 @@
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QGroupBox" name="groupBox">
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="gPBox_cnpj">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -133,13 +108,20 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="lnEdit_cnpj">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_2">
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="gPBox_emp">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -150,13 +132,20 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="QComboBox" name="comboBox"/>
+          <widget class="QLineEdit" name="lnEdit_emp">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_3">
+      <item row="2" column="0">
+       <widget class="QGroupBox" name="gPBox_repLeg">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -167,30 +156,44 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="QLineEdit" name="lineEdit_2"/>
+          <widget class="QLineEdit" name="lnEdit_repLeg">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_4">
+      <item row="3" column="0">
+       <widget class="QGroupBox" name="gPBox_email">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
          </font>
         </property>
         <property name="title">
-         <string>PONTO DE ATENÇÃO:</string>
+         <string>EMAIL:</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="lnEdit_email">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item>
-       <widget class="QGroupBox" name="groupBox_5">
+      <item row="4" column="0">
+       <widget class="QGroupBox" name="gPBox_venc">
         <property name="font">
          <font>
           <pointsize>12</pointsize>
@@ -201,12 +204,19 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
-          <widget class="QLineEdit" name="lineEdit_4"/>
+          <widget class="QCalendarWidget" name="calendarWidget">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </item>
-      <item>
+      <item row="5" column="0">
        <widget class="QGroupBox" name="groupBox_6">
         <property name="font">
          <font>
@@ -218,7 +228,37 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <item>
-          <widget class="QComboBox" name="comboBox_2"/>
+          <widget class="QComboBox" name="cBox_tpAss">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="currentText">
+            <string>AVALISTA</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>AVALISTA</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FIADOR</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>FIEL DEPOSITÁRIO</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>PARTE</string>
+            </property>
+           </item>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -248,7 +288,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_9">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pButton_salvar">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -276,8 +316,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="Resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

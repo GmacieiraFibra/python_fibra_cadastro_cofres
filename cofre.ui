@@ -26,220 +26,6 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QFrame" name="frame_header">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>100</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 255, 255);</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QFrame" name="frame_avencer">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_2">
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Dentro do próximo mês, haverá(ão) &quot;&quot; mandato(s) vencendo.</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Clique aqui para visualizar</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_vencidos">
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Considerando a data de hoje há &quot;&quot; mandato(s) vencido(s)</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="text">
-             <string>Clique aqui para visualizar</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_filter">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_8">
-       <item>
-        <widget class="QGroupBox" name="groupBox_id">
-         <property name="font">
-          <font>
-           <kerning>true</kerning>
-          </font>
-         </property>
-         <property name="title">
-          <string>ID:</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QComboBox" name="comboBox_id"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_cnpj">
-         <property name="title">
-          <string>CNPJ:</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QComboBox" name="comboBox_cnpj"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_emp">
-         <property name="title">
-          <string>EMPRESA:</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QComboBox" name="comboBox_emp"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QGroupBox" name="groupBox_repLeg">
-         <property name="title">
-          <string>REPRESENTANTE LEGAL:</string>
-         </property>
-         <property name="flat">
-          <bool>false</bool>
-         </property>
-         <property name="checkable">
-          <bool>false</bool>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_6">
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <widget class="QComboBox" name="comboBox_repLeg"/>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>LIMPAR FILTROS</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
      <widget class="QFrame" name="frame_table">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -249,126 +35,352 @@
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QTreeWidget" name="treeWidget">
-         <column>
-          <property name="text">
-           <string>ID</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>CNPJ</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>EMPRESA</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>REPRESENTANTE LEGAL</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>EMAIL DE CONTATO</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>VENCIEMENTO MANDATO</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>TIPO DE ASSINATURA</string>
-          </property>
-         </column>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="groupBox_acoes">
-      <property name="title">
-       <string>AÇÕES:</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_7">
-       <item>
-        <widget class="QFrame" name="frame_incluir">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>1</number>
          </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_9">
-          <item>
-           <widget class="QPushButton" name="pushButton_incluir">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>INCLUIR</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_alterar">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_11">
-          <item>
-           <widget class="QPushButton" name="pushButton_alterar">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>ALTERAR</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="frame_excluir">
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
-          <item>
-           <widget class="QPushButton" name="pushButton_excluir">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>EXCLUIR</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>INCLUIR</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="gPBox_cnpj">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>CNPJ:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QLineEdit" name="lnEdit_cnpj">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="gPBox_emp">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>EMPRESA:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QLineEdit" name="lnEdit_emp">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="gPBox_repLeg">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>REPRESENTANTE LEGAL:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QLineEdit" name="lnEdit_repLeg">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QGroupBox" name="gPBox_email">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>EMAIL:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <item>
+               <widget class="QLineEdit" name="lnEdit_email">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>TIPO DE ASSINATURA:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QComboBox" name="cBox_tpAss">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="currentText">
+                 <string>AVALISTA</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>AVALISTA</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>FIADOR</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>FIEL DEPOSITÁRIO</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>PARTE</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QGroupBox" name="gPBox_venc">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="title">
+              <string>VENCIMENTO:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QCalendarWidget" name="calendarWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QPushButton" name="pushButton_incluir">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>INCLUIR</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>COFRES</string>
+          </attribute>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>ID</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>CNPJ</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>EMPRESA</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>REPRESENTANTE LEGAL</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>EMAIL DE CONTATO</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>VENCIMENTO MANDATO</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>TIPO DE ASSINATURA</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_acoes">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>AÇÕES:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QPushButton" name="pushButton_alterar">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>ALTERAR</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_excluir">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>EXCLUIR</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_excel">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>25</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>EXCEL</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -396,18 +408,8 @@
     <addaction name="separator"/>
     <addaction name="actionFechar"/>
    </widget>
-   <widget class="QMenu" name="menuA_es">
-    <property name="title">
-     <string>Ações</string>
-    </property>
-    <addaction name="actionIncluir"/>
-    <addaction name="actionAlterar"/>
-    <addaction name="actionExcluir"/>
-   </widget>
    <addaction name="menuMenu"/>
-   <addaction name="menuA_es"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionVencendo_em_30_dias">
    <property name="text">
     <string>Vencendo em 30 dias</string>

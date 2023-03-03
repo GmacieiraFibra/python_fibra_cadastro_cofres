@@ -1,5 +1,9 @@
 import sqlite3
 from sqlite3 import Error as err
+import pandas as pd
+import tkinter
+from tkinter import filedialog
+
 
 class dbControl():
     def __init__(self, name = "vault.db") -> None:
@@ -34,16 +38,66 @@ class dbControl():
         except:
             print(err)
         
-    def insert_data(self, cnpj, empresa, rep_legal, email, venc_mandato, tp_ass):
+    def insert_vault(self, cnpj, empresa, rep_legal, email, venc_mandato, tp_ass,user):
         try:
             cur = self.connection.cursor()
             cur.execute("""
-            INSERT INTO vaults(cnpj, empresa, rep_legal, email, venc_mandato, tp_ass) VALUES (?,?,?,?,?,?)
-            """, (cnpj, empresa, rep_legal, email, venc_mandato, tp_ass))
+            INSERT INTO vaults(cnpj, empresa, rep_legal, email, venc_mandato, tp_ass,user) VALUES (?,?,?,?,?,?,?)
+            """, (cnpj, empresa, rep_legal, email, venc_mandato, tp_ass, user))
 
             self.connection.commit()
+            return ("ok")
         except:
-            print("deu ruim")
+             print(err)
+
+    def select_all_vaults(self):
+        try:
+            cur=self.connection.cursor()
+            cur.execute("""SELECT * FROM vaults""")
+            vaults = cur.fetchall()
+            return vaults
+        except:
+            pass
+
+    def delete_vault(self,id):
+        try:
+            cur=self.connection.cursor()
+            cur.execute(f"""DELETE FROM vaults WHERE id = {id}""")
+
+            self.connection.commit()
+            
+            return "O registro foi excluído com sucesso!"
+        
+        except:
+            return("Erro ao excluir")
+    
+    def update_vault(self, fullDataSet):
+            
+        cur=self.connection.cursor()
+        cur.execute(f"""UPDATE vaults set
+            id = {fullDataSet[0]}, 
+            cnpj = '{fullDataSet[1]}', 
+            empresa = '{fullDataSet[2]}', 
+            rep_legal = '{fullDataSet[3]}', 
+            email = '{fullDataSet[4]}', 
+            venc_mandato = {fullDataSet[5]}, 
+            tp_ass = '{fullDataSet[6]}'
+
+            WHERE id = {fullDataSet[0]}              
+            """)
+        self.connection.commit()
+
+    def relat():
+
+        con = sqlite3.connect("vault.db")
+        result= pd.read_sql_query("SELECT * FROM vaults", con)
+
+        root = tkinter.Tk()
+        dirNome = filedialog.askdirectory(parent=root, initialdir="/",title ='Selecione a pasta')
+        result.to_excel(dirNome +"\\ATIVIDADES_HABILITACAO_ANO.xlsx",sheet_name="Rel", index=False)
+        root.withdraw()
+        return dirNome
+
 
 if __name__ == "__main__":
     db = dbControl()

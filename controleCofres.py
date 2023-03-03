@@ -2,13 +2,16 @@
 from  PySide6.QtWidgets import (QApplication, QMainWindow, QTableWidgetItem, QMessageBox)
 import PySide6.QtCore
 from ui_cofre  import Ui_MainWindow
-from ui_novosPoderes import Ui_Form
+import openpyxl
 import sys
 import getpass
-from datetime import datetime
+import datetime
 from dataBase import dbControl
 import pandas as pd
 import sqlite3
+import tkinter 
+from tkinter import filedialog
+
 
 db = dbControl()
 db.connect_db()
@@ -24,13 +27,19 @@ class vaultScreen(QMainWindow, Ui_MainWindow):
         super(vaultScreen,self).__init__()
         self.setupUi(self)
         self.setWindowTitle("CONTROLE DE COFRES")
+        self.actionFechar.triggered.connect(lambda:self.screen_close())
+        self.actionRelat_rio_Excel.triggered.connect(lambda:self.excel_generate_full())
         self.pushButton_incluir.clicked.connect(lambda:self.new_vault())
         self.pushButton_alterar.clicked.connect(lambda:self.update_vault())
         self.pushButton_excluir.clicked.connect(lambda:self.delete_vault())
-        self.pushButton_excel.clicked.connect(lambda:self.excel_generate())
+        self.pushButton_excel.clicked.connect(lambda:self.excel_generate()) 
+        self.pushButton_30.clicked.connect(lambda:self.future_maturities(30))
+        self.pushButton_15.clicked.connect(lambda:self.future_maturities(15))
+        self.pushButton_vencidos.clicked.connect(lambda:self.vanquishe())       
+        self.pushButton_LimpaFiltro.clicked.connect(lambda:self.filter_clear())
         self.search_vaults()
         
-    # PROCURA EMPRESAS E PREENCHE A TABELA
+    # PROCURAR EMPRESAS E PREENCHE A TABELA
     def search_vaults(self):        
         db = dbControl()
         db.connect_db()
@@ -48,7 +57,7 @@ class vaultScreen(QMainWindow, Ui_MainWindow):
         for i in range(1,7):
             self.tableWidget.resizeColumnToContents(i)
 
-    # INCLUI NOVAS EMPRESAS
+    # INCLUIR NOVAS EMPRESAS
     def new_vault(self):
         cnpj = self.lnEdit_cnpj.text()
         empresa = self.lnEdit_emp.text()
@@ -95,7 +104,7 @@ class vaultScreen(QMainWindow, Ui_MainWindow):
         msg.exec()
         db.connect_close()
     
-    # ATUALIZA EMPRESAS
+    # ATUALIZAR EMPRESAS
     def update_vault(self):
         data = []
         update_data = []
@@ -146,10 +155,110 @@ class vaultScreen(QMainWindow, Ui_MainWindow):
             msg.setText(result)
             msg.exec()
 
-    # GERA EXCEL
-    def excel_generate():
+    # GERAR EXCEL
+    def excel_generate(self):
+    
+        data =[]
+        all_data = []
+
+        for row in range (self.tableWidget.rowCount()):
+            for column in range(self.tableWidget.columnCount()):
+                data.append(self.tableWidget.item(row, column).text())
+            all_data.append(data)
+            data=[]
+        
+        columns=  ['id','cnpj', 'empresa', 'rep_legal', 'email', 'venc_mandato', 'tp_ass']
+
+        vaults = pd.DataFrame(all_data, columns=columns)
+        root = tkinter.Tk()
+        dirNome = filedialog.askdirectory(parent=root, initialdir="/",title ='Selecione a pasta')
+        vaults.to_excel(dirNome +"\\Cofres.xlsx", sheet_name="Cofres", index= False)
+        root.withdraw()
+
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowTitle("SUCESSO!")
+        msg.setText(f"Relatório gerado com sucesso em {dirNome}!")
+        msg.exec()
+
+    # FECHAR PROGRAMA
+    def screen_close (self):
+            self.close()
+
+    # GERAR EXCEL FULL
+    def excel_generate_full(self):
+        conn = sqlite3.connect('vault.db')
+        result= pd.read_sql_query("SELECT * FROM vaults", conn)
+
+        root = tkinter.Tk()
+        dirNome = filedialog.askdirectory(parent=root, initialdir="/",title ='Selecione a pasta')
+        result.to_excel(dirNome +"\\Cofres completo.xlsx",sheet_name="Rel_Cofres", index=False)
+        root.withdraw()
+
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setWindowTitle("SUCESSO!")
+        msg.setText(f"Relatório gerado com sucesso em {dirNome}!")
+        msg.exec()
+
+    # LIMPA FILTROS
+    def filter_clear(self):
+        self.tableWidget.reset()
+        self.search_vaults()
+
+    # FILTRAR VENCIDAS
+    def vanquishe(self):
         db = dbControl()
-        db.relat()
+        db.connect_db()
+        today = datetime.datetime.today().strftime('%Y-%m-%d')
+        result = db.vanquished(today)
+        db.connect_close()
+
+        self.tableWidget.clearContents()
+        self.tableWidget.setRowCount(len(result))
+
+        for row, text in enumerate (result):
+            for column, data in enumerate(text):
+                self.tableWidget.setItem(row, column,  QTableWidgetItem(str(data)))
+                       
+        db.connect_close()
+
+        for i in range(1,7):
+            self.tableWidget.resizeColumnToContents(i)
+        
+        msg = QMessageBox()
+        msg.setWindowTitle("RESULTADO")
+        msg.setIcon(QMessageBox.Information)
+        msg.setInformativeText(f"Foram encontrados {len(result)} registros com poderes vecidos")
+        msg.exec()
+
+    # FILTRAR VENCIMENTOS FUTUROS
+    def future_maturities(self, qt_d):
+        db = dbControl()
+        db.connect_db()
+        today = datetime.datetime.today().strftime('%Y-%m-%d')
+        qt_days = datetime.datetime.today() + datetime.timedelta(qt_d)
+        qt_days = qt_days.strftime('%Y-%m-%d')
+        result = db.future_maturities(today, qt_days)
+        db.connect_close()
+
+        self.tableWidget.clearContents()
+        self.tableWidget.setRowCount(len(result))
+
+        for row, text in enumerate (result):
+            for column, data in enumerate(text):
+                self.tableWidget.setItem(row, column,  QTableWidgetItem(str(data)))
+                       
+        db.connect_close()
+
+        for i in range(1,7):
+            self.tableWidget.resizeColumnToContents(i)
+
+        msg = QMessageBox()
+        msg.setWindowTitle("RESULTADO")
+        msg.setIcon(QMessageBox.Information)
+        msg.setInformativeText(f"Foram encontrados {len(result)} registros com vencimento para {qt_d} dias")
+        msg.exec()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

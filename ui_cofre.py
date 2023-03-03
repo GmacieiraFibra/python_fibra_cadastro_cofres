@@ -203,7 +203,54 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.tableWidget)
 
-        self.groupBox_acoes = QGroupBox(self.tab_2)
+        self.frame = QFrame(self.tab_2)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(100, 0))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_3)
+
+        self.groupBox_filtro = QGroupBox(self.frame)
+        self.groupBox_filtro.setObjectName(u"groupBox_filtro")
+        self.groupBox_filtro.setMinimumSize(QSize(150, 0))
+        self.verticalLayout_11 = QVBoxLayout(self.groupBox_filtro)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
+        self.pushButton_30 = QPushButton(self.groupBox_filtro)
+        self.pushButton_30.setObjectName(u"pushButton_30")
+        self.pushButton_30.setMinimumSize(QSize(0, 25))
+
+        self.verticalLayout_11.addWidget(self.pushButton_30)
+
+        self.pushButton_15 = QPushButton(self.groupBox_filtro)
+        self.pushButton_15.setObjectName(u"pushButton_15")
+        self.pushButton_15.setMinimumSize(QSize(0, 25))
+
+        self.verticalLayout_11.addWidget(self.pushButton_15)
+
+        self.pushButton_vencidos = QPushButton(self.groupBox_filtro)
+        self.pushButton_vencidos.setObjectName(u"pushButton_vencidos")
+        self.pushButton_vencidos.setMinimumSize(QSize(0, 25))
+
+        self.verticalLayout_11.addWidget(self.pushButton_vencidos)
+
+        self.pushButton_LimpaFiltro = QPushButton(self.groupBox_filtro)
+        self.pushButton_LimpaFiltro.setObjectName(u"pushButton_LimpaFiltro")
+        self.pushButton_LimpaFiltro.setMinimumSize(QSize(0, 25))
+
+        self.verticalLayout_11.addWidget(self.pushButton_LimpaFiltro)
+
+
+        self.verticalLayout_2.addWidget(self.groupBox_filtro)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer)
+
+        self.groupBox_acoes = QGroupBox(self.frame)
         self.groupBox_acoes.setObjectName(u"groupBox_acoes")
         self.groupBox_acoes.setMinimumSize(QSize(100, 0))
         self.verticalLayout_4 = QVBoxLayout(self.groupBox_acoes)
@@ -220,10 +267,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.pushButton_excluir)
 
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_4.addItem(self.verticalSpacer)
-
         self.pushButton_excel = QPushButton(self.groupBox_acoes)
         self.pushButton_excel.setObjectName(u"pushButton_excel")
         self.pushButton_excel.setMinimumSize(QSize(0, 25))
@@ -231,7 +274,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.addWidget(self.pushButton_excel)
 
 
-        self.horizontalLayout_3.addWidget(self.groupBox_acoes)
+        self.verticalLayout_2.addWidget(self.groupBox_acoes)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
+
+
+        self.horizontalLayout_3.addWidget(self.frame)
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -249,8 +299,6 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
 
         self.menubar.addAction(self.menuMenu.menuAction())
-        self.menuMenu.addAction(self.actionVencendo_em_30_dias)
-        self.menuMenu.addAction(self.actionVencimento_proximo)
         self.menuMenu.addSeparator()
         self.menuMenu.addAction(self.actionRelat_rio_Excel)
         self.menuMenu.addSeparator()
@@ -267,7 +315,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.actionVencendo_em_30_dias.setText(QCoreApplication.translate("MainWindow", u"Vencendo em 30 dias", None))
-        self.actionVencimento_proximo.setText(QCoreApplication.translate("MainWindow", u"Vencimento proximo", None))
+        self.actionVencimento_proximo.setText(QCoreApplication.translate("MainWindow", u"Vencidos", None))
         self.actionRelat_rio_Excel.setText(QCoreApplication.translate("MainWindow", u"Relat\u00f3rio Excel", None))
         self.actionFechar.setText(QCoreApplication.translate("MainWindow", u"Fechar", None))
         self.actionIncluir.setText(QCoreApplication.translate("MainWindow", u"Incluir", None))
@@ -301,9 +349,35 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"VENCIMENTO MANDATO", None));
         ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"TIPO DE ASSINATURA", None));
+        self.groupBox_filtro.setTitle(QCoreApplication.translate("MainWindow", u"FILTROS:", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_30.setToolTip(QCoreApplication.translate("MainWindow", u"Filtrar vencimentos para daqui 30 dias", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_30.setText(QCoreApplication.translate("MainWindow", u"VENCIMENTO 30 DIAS", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_15.setToolTip(QCoreApplication.translate("MainWindow", u"Filtrar vencimentos para daqui 15 dias", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_15.setText(QCoreApplication.translate("MainWindow", u"VENCIMENTO 15 DIAS", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_vencidos.setToolTip(QCoreApplication.translate("MainWindow", u"Filtrar vencidos", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_vencidos.setText(QCoreApplication.translate("MainWindow", u"VENCIDOS", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_LimpaFiltro.setToolTip(QCoreApplication.translate("MainWindow", u"Limpa qulaquer filtro", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_LimpaFiltro.setText(QCoreApplication.translate("MainWindow", u"LIMPAR FILTROS", None))
         self.groupBox_acoes.setTitle(QCoreApplication.translate("MainWindow", u"A\u00c7\u00d5ES:", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_alterar.setToolTip(QCoreApplication.translate("MainWindow", u"Registra no banco de dados altera\u00e7\u00f5es feitas na tabela", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_alterar.setText(QCoreApplication.translate("MainWindow", u"ALTERAR", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_excluir.setToolTip(QCoreApplication.translate("MainWindow", u"Exclui registro selecionado na tabele", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_excluir.setText(QCoreApplication.translate("MainWindow", u"EXCLUIR", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_excel.setToolTip(QCoreApplication.translate("MainWindow", u"Gera Excel das informa\u00e7\u00f5es exibidas na tabela", None))
+#endif // QT_CONFIG(tooltip)
         self.pushButton_excel.setText(QCoreApplication.translate("MainWindow", u"EXCEL", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"COFRES", None))
         self.menuMenu.setTitle(QCoreApplication.translate("MainWindow", u"Menu", None))
